@@ -1,0 +1,28 @@
+Algoritmul LeLann
+
+Se initializeaza mediul de rulare MPI.
+
+La un moment dat, un nod poate avea una din 3 stari:
+CANDIDATE, LEADER sau LOST.
+
+CANDIDATE inseamna ca inca nu s-a aflat daca a devenit lider sau nu
+LEADER inseamna ca a devenit lider
+LOST inseamna ca nu a devenit lider
+
+La finalul executiei, un nod trebuie neparat sa fie una dintre LEADER sau LOST.
+Un singur nod poate fi LEADER.
+
+Initial, fiecare nod isi trimite rank-ul catre procesul urmator,
+urmand ca acesta sa primeasca rank-ul procesului anterior (din inel).
+
+Dupa aceea, cat timp nodul nu isi primeste rank-ul lui de la procesul
+precedent (ceea ce semnifica un ciclu de inel), acesta face
+forward la valoarea primita de la procesul anterior catre procesul urmator.
+
+Fiecare valoare primita este salvata intr-o lista (alaturi de propriul rank)
+
+Dupa ce si-a primit propriul rank de la procesul anterior,
+rank-ul maxim din lista determina liderul.
+
+Daca un nod are rank-ul egal cu aceasta valoare maxima, atunci el este
+LEADER, altfel este LOST.

@@ -1,0 +1,17 @@
+2 thread-uri
+	Execution time (ns) = 10447098100
+3 thread-uri
+	Execution time (ns) = 9010536900
+4 thread-uri
+	Execution time (ns) = 8672122500
+
+Sortarea are N iteratii si functioneaza in 2 faze:
+	Faza impara in care fiecare element de pe pozitie
+	impara este comparat cu cel de dupa el, si interschimbat daca
+	este nevoie
+	Faza para in care fiecare element de pe pozitie
+	para este comparat cu cel de dupa el, si interschimbat daca
+	este nevoie
+
+Prin paralelizare ofer fiecarui thread un anumit range din array
+in care sa-si desfasoare aceste iteratii
